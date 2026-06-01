@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CS-banana-bot": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
