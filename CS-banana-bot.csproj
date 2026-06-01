@@ -25,4 +25,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CS-banana-bot.BusinessLogic\CS-banana-bot.BusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>

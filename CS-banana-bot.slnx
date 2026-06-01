@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../CS-banana-bot.BusinessLogic/CS-banana-bot.BusinessLogic.csproj" Id="1c1db050-09e1-49b5-8e7d-cbee7d276f7a" />
   <Project Path="CS-banana-bot.csproj" />
 </Solution>

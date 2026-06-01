@@ -1,4 +1,7 @@
-﻿using CS_banana_bot.Orchestrators;
+﻿using CS_banana_bot.BusinessLogic.Interfaces;
+using CS_banana_bot.BusinessLogic.Test;
+using CS_banana_bot.Infrastructure;
+using CS_banana_bot.Modules;
 using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
@@ -19,7 +22,17 @@ builder.ConfigureServices((hostContext, services) =>
     services.AddSingleton<DiscordSocketClient>();
     services.AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()));
 
-    services.AddHostedService<MainOrchestrator>();
+    //Modules
+    services.AddScoped<TestModule>();
+    services.AddSingleton<TestTimedModule>();
+
+    //Business Logic
+    services.AddSingleton<IGetTestData, GetTestData>();
+
+    //Lifecycle
+    services.AddSingleton<UserCommandsOrchestrator>();
+    services.AddHostedService<BotInitializer>();
+    services.AddHostedService<TimedEventOrchestrator>();
 });
 
 var host = builder.Build();

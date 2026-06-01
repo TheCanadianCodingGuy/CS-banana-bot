@@ -1,0 +1,13 @@
+﻿### TODO for PoC Still
+- Make database with sqlite and ensure it connects, can get one entity and display it.
+	- Have timed event change that entity, and see if it does save and fetch correctly
+- Test embeds and better responses.
+- Unit test project
+- Bring one use case for each user command and timed event, and implement it with the database
+	- a very standard flip + a daily counter
+- Search for a linux VPS to host the bot
+- Make sure the Discord dev stuff is not public and so that I only I can connect on my server.
+- After all that, if it is a go, optimize the architecture, then import the bot feature by feature.
+	- Bring logging into its own top level thing, and make sure it is used everywhere.
+	- Validate what is unit testable
+	- start TDD

@@ -1,16 +1,17 @@
-﻿using Discord.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CS_banana_bot.BusinessLogic.Interfaces;
+using CS_banana_bot.Formatters;
+using Discord.Interactions;
 
-namespace CS_banana_bot.Modules
+namespace CS_banana_bot.Modules;
+
+public class TestModule(IGetTestData test) : InteractionModuleBase<SocketInteractionContext>
 {
-    public class TestModule : InteractionModuleBase<SocketInteractionContext>
+    private readonly IGetTestData _test = test;
+
+    [SlashCommand("test2", "Hello world, again!")]
+    public async Task HandleTest2()
     {
-        [SlashCommand("test", "Test to see if the connection pipeline is active.")]
-        public async Task HandleTestCommand()
-        {
-            await RespondAsync("Hello World!");
-        }
+       var response = await ResponseFormatter.FormatHandleTest(_test.GetTestString());
+       await RespondAsync(response);
     }
 }
